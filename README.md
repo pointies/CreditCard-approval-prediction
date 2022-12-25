@@ -1,4 +1,4 @@
-# creditCard-approval-prediction
+# Credit Card Approval Prediction
 Term project for CPE213 Data model
 
 ## Dataset
