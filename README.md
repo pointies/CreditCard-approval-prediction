@@ -1,5 +1,5 @@
 # Credit Card Approval Prediction
-Term project for CPE213 Data model
+Term project for CPE213 Data models
 
 ## Dataset
 From https://www.kaggle.com/datasets/rikdifos/credit-card-approval-prediction
