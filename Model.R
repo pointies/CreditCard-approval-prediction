@@ -49,7 +49,7 @@ confusionMatrix(res1c, test$EvaluateCustomer, mode = "prec_recall", positive = "
 
 #------------------------------- Decision Tree -----------------------------------------
 #Tree No cp
-tree <- rpart(EvaluateCustomer~CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + CNT_CHILDREN
+tree <- rpart(EvaluateCustomer ~ CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + CNT_CHILDREN
               + AMT_INCOME_TOTAL + NAME_INCOME_TYPE + NAME_EDUCATION_TYPE + NAME_FAMILY_STATUS
               + NAME_HOUSING_TYPE + FLAG_WORK_PHONE + FLAG_PHONE + FLAG_EMAIL + CNT_FAM_MEMBERS 
               + AGE + WORKYEARS, train)
@@ -57,7 +57,7 @@ rpart.plot(tree, box.palette="RdBu", shadow.col="gray", nn=TRUE)
 
 #Tree Cross-validation
 train_control <- trainControl(method="cv",number = 5)
-model <- train(EvaluateCustomer~CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + CNT_CHILDREN
+model <- train(EvaluateCustomer ~ CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + CNT_CHILDREN
                + AMT_INCOME_TOTAL + NAME_INCOME_TYPE + NAME_EDUCATION_TYPE + NAME_FAMILY_STATUS
                + NAME_HOUSING_TYPE + FLAG_WORK_PHONE + FLAG_PHONE + FLAG_EMAIL + CNT_FAM_MEMBERS 
                + AGE + WORKYEARS, train,
@@ -66,7 +66,7 @@ model <- train(EvaluateCustomer~CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + C
 model
 
 #Tree cp Before
-tree <- rpart(EvaluateCustomer~CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + CNT_CHILDREN
+tree <- rpart(EvaluateCustomer ~ CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + CNT_CHILDREN
               + AMT_INCOME_TOTAL + NAME_INCOME_TYPE + NAME_EDUCATION_TYPE + NAME_FAMILY_STATUS
               + NAME_HOUSING_TYPE + FLAG_WORK_PHONE + FLAG_PHONE + FLAG_EMAIL + CNT_FAM_MEMBERS 
               + AGE + WORKYEARS, train, parms=list(split=c("information","gini")),
@@ -77,7 +77,7 @@ res1 <- predict(tree, test, type = "class")
 confusionMatrix(res1, test$EvaluateCustomer, mode = "prec_recall", positive = "1")
 
 #Tree cp After
-tree <- rpart(EvaluateCustomer~CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + CNT_CHILDREN
+tree <- rpart(EvaluateCustomer ~ CODE_GENDER + FLAG_OWN_CAR + FLAG_OWN_REALTY + CNT_CHILDREN
               + AMT_INCOME_TOTAL + NAME_INCOME_TYPE + NAME_EDUCATION_TYPE + NAME_FAMILY_STATUS
               + NAME_HOUSING_TYPE + FLAG_WORK_PHONE + FLAG_PHONE + FLAG_EMAIL + CNT_FAM_MEMBERS 
               + AGE + WORKYEARS, train, parms=list(split=c("information","gini")),
